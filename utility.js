@@ -31,6 +31,7 @@ async function broadcastPost(post, sender){
   users.map( user=> {
     const {fcmToken} = user;
     if(!fcmToken)return;
+    console.log("Sending broadcast to user", user.userName);
     admin.messaging().sendToDevice(
       [fcmToken],
       {
