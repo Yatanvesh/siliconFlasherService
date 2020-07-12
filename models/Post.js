@@ -35,7 +35,7 @@ async function get(_id) {
 }
 
 async function list() {
-  return await Model.find({});
+  return await Model.find({}).sort({createdOn:-1});
 }
 
 async function create(fields) {
