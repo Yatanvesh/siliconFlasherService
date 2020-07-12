@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 const PostModel = require('../models/Post');
 const utility = require('../utility');
+var Moniker = require('moniker');
+var postNames = Moniker.generator([Moniker.adjective, Moniker.verb,  Moniker.noun]);
 
 router.get('/view/:postId', async function (req, res, next) {
   try {
@@ -33,7 +35,8 @@ router.put('/create', async function (req, res, next) {
     const {userName = 'default'} = req.body;
     let post = await PostModel.create({
       createdBy: userName,
-      contentURL
+      contentURL,
+      postName:postNames.choose()
     });
     utility.broadcastPost(post, userName);
     res.json({post});

@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const db = require('../config/db');
 
-var Moniker = require('moniker');
-var postNames = Moniker.generator([Moniker.adjective, Moniker.verb,  Moniker.noun]);
 const postSchema = mongoose.Schema({
   createdBy: {
     type: String,
@@ -10,7 +8,7 @@ const postSchema = mongoose.Schema({
   },
   postName:{
     type:String,
-    default: postNames.choose
+    default: ''
   },
   createdOn: {
     type: Date,
