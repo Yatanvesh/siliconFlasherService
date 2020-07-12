@@ -10,7 +10,7 @@ const postSchema = mongoose.Schema({
   },
   postName:{
     type:String,
-    default:postNames.choose()
+    default: postNames.choose
   },
   createdOn: {
     type: Date,

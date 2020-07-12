@@ -4,7 +4,7 @@ const Moniker = require('moniker');
 const Model = db.model('User', {
   userName: {
     type: String,
-    default: Moniker.choose()
+    default: Moniker.choose
   },
   fcmToken: {
     type: String,
